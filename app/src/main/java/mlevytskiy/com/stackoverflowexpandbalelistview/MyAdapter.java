@@ -15,32 +15,32 @@ import java.util.List;
 public class MyAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    List<String> parent_items;
-    HashMap<String,List<String>> child_items;
-    public MyAdapter(Context context, List<String> parent_items, HashMap<String, List<String>> child_items)  {
+    List<String> parentItems;
+    HashMap<String,List<String>> childItems;
+    public MyAdapter(Context context, List<String> parentItems, HashMap<String, List<String>> childItems)  {
         this.context=context;
-        this.parent_items=parent_items;
-        this.child_items=child_items;
+        this.parentItems = parentItems;
+        this.childItems = childItems;
     }
 
     @Override
     public int getGroupCount() {
-        return parent_items.size();
+        return parentItems.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return child_items.get(parent_items.get(groupPosition)).size();
+        return childItems.get(parentItems.get(groupPosition)).size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return parent_items.get(groupPosition);
+        return parentItems.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return child_items.get(parent_items.get(groupPosition)).get(childPosition);
+        return childItems.get(parentItems.get(groupPosition)).get(childPosition);
     }
 
     @Override

@@ -11,8 +11,8 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     MyAdapter myAdapter;
-    HashMap <String,List<String>> child_items;
-    List<String> parent_items;
+    HashMap <String,List<String>> childItems;
+    List<String> parentItems;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -20,21 +20,21 @@ public class MainActivity extends Activity {
         childListData();
         ExpandableListView expandableListView= (ExpandableListView) findViewById(R.id.expandable_list_view);
 
-        myAdapter =new MyAdapter(this,parent_items,child_items);
+        myAdapter = new MyAdapter(this, parentItems, childItems);
         expandableListView.setAdapter(myAdapter);
 
 
     }
 
     public void parentListData() {
-        parent_items=new ArrayList<>();
-        parent_items.add("Action Movies");
-        parent_items.add("Romantic Movies");
-        parent_items.add("Comedy Movies");
+        parentItems =new ArrayList<>();
+        parentItems.add("Action Movies");
+        parentItems.add("Romantic Movies");
+        parentItems.add("Comedy Movies");
     }
 
     public void childListData() {
-        child_items=new HashMap<>();
+        childItems =new HashMap<>();
         List<String> action=new ArrayList<>();
         action.add("aa");
         action.add("aa");
@@ -50,9 +50,9 @@ public class MainActivity extends Activity {
         comedy.add("aa");
         comedy.add("aa");
 
-        child_items.put(parent_items.get(0),action);
-        child_items.put(parent_items.get(1),romantic);
-        child_items.put(parent_items.get(2),comedy);
+        childItems.put(parentItems.get(0), action);
+        childItems.put(parentItems.get(1), romantic);
+        childItems.put(parentItems.get(2), comedy);
 
     }
 
